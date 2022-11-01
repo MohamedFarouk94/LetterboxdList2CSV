@@ -52,7 +52,7 @@ def create_list(url):
     return list_of_films
 
 
-def complete_list(list_of_films, verbose=1):
+def complete_list(list_of_films, verbose=0):
     global EXTERNAL_INTERRUPT, LOADING
     iterable_object = tqdm(list_of_films) if verbose else list_of_films
     n_films = len(list_of_films)
