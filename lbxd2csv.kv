@@ -1,0 +1,117 @@
+MainComponent:
+
+<MainComponent>:
+    orientation: "vertical"
+    spacing: '10dp'
+    Label:
+        size_hint: 1, 0.2
+        font_size: "35dp"
+        text: 'CONVERT A LETTERBOXD LIST TO A CSV FILE'
+        canvas.before:
+            Color:
+                rgba: root.BACKGROUND_COLOR
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint: 1, 0.2
+        TextInput:
+            hint_text: 'Enter a public Letterboxd list url\n(e.g.:https://letterboxd.com/dave/list/official-top-250-narrative-feature-films or https://boxd.it/8HjM)'
+            font_size: "20dp"
+            size_hint: 0.9, 1
+            on_text: root.on_text(self)
+            disabled: root.text_disabled
+            on_disabled: root.clear_text(self)
+            use_bubble: True
+        Button:
+            size_hint: 0.1, 1
+            font_size: "40dp"
+            text: 'Go'
+            on_press: root.on_go()
+            disabled: root.go_disabled
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint: 1, 0.2
+        Label:
+            size_hint: 0.9, 1
+            text: root.upper_msg
+            font_size: str(max(100 - 2*len(root.upper_msg), 25)) + "dp"
+            color: root.upper_color
+            canvas.before:
+                Color:
+                    rgba: root.BACKGROUND_COLOR
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Button:
+            size_hint: 0.1, 1
+            font_size: "25dp"
+            text: 'Cancel'
+            on_press: root.on_cancel()
+            disabled: root.cancel_disabled
+
+    BoxLayout:
+        orientation: "horizontal"
+        spacing: "10dp"
+        size_hint: 1, 0.2
+        ProgressBar:
+            size_hint: 0.9, 1
+            id: 'prog_bar'
+            value: root.loading_ratio
+            min: 0
+            max: 1
+        Label:
+            size_hint: 0.1, 1
+            text: root.loading_percentage
+            font_size: "35dp"
+            canvas.before:
+                Color:
+                    rgba: root.BACKGROUND_COLOR
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+    BoxLayout:
+        oritentation: "horizontal"
+        size_hint: 1, 0.2
+        Label:
+            size_hint: 0.9, 1
+            text: root.lower_msg
+            text_size: self.size
+            halign: "left"
+            valign: "middle"
+            font_size: "20dp"
+            canvas.before:
+                Color:
+                    rgba: root.BACKGROUND_COLOR
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Button:
+            size_hint: 0.1, 1
+            font_size: "25dp"
+            text: 'Save'
+            on_press: root.on_save()
+            disabled: root.save_disabled
+
+    FileChooserListView:
+        on_path: root.on_path(self)
+        disabled: root.browser_disabled
+        on_disabled: root.on_path(self)
+
+    Label:
+        size_hint: 1, 0.2
+        text: '(C) All copyrights reserved.   TWITTER:@mohfarouk94   GitHub:MohamedFarouk94'
+        text_size: self.size
+        font_size: "20dp"
+        halign: 'center'
+        valign: 'middle'
+        canvas.before:
+            Color:
+                rgba: root.BACKGROUND_COLOR
+            Rectangle:
+                pos: self.pos
+                size: self.size
