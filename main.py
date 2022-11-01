@@ -1,6 +1,5 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.widget import Widget
 from kivy.core.window import Window
 from kivy.properties import StringProperty, ColorProperty, NumericProperty, BooleanProperty, Clock
 from kivy.utils import platform

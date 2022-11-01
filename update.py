@@ -4,7 +4,7 @@ from main_procedure import create_list, complete_list
 
 
 def update(self, dt):
-    self.counter = (self.counter + 1) % 10
+    self.counter = (self.counter + 1) % self.FPS
     logging.info(f'UPDATE {self.counter}: CURRENT STAGE: {self.stage}')
     if not self.stage:
         return
