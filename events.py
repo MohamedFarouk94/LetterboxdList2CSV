@@ -54,7 +54,7 @@ def observe(self, fun, args, kwargs):
         logging.info(f'OBSERVE {fun.__name__}: FUNCTION RETURN SUCCEEDED')
         setattr(self, f'{fun.__name__}_STATUS', 'SUCCEEDED')
     else:
-        logging.info(f'OBSERVE {fun.__name__}: FUNCTION RETURN FAILED')
+        logging.warning(f'OBSERVE {fun.__name__}: FUNCTION RETURN FAILED')
         setattr(self, f'{fun.__name__}_STATUS', 'FAILED')
     logging.info(f'OBSERVE {fun.__name__}: LEAVING PEACEFULLY')
 

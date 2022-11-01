@@ -4,11 +4,6 @@ from kivy.uix.widget import Widget
 from kivy.core.window import Window
 from kivy.properties import StringProperty, ColorProperty, NumericProperty, BooleanProperty, Clock
 from kivy.utils import platform
-from time import sleep
-import threading as th
-from main_procedure import handle_url, create_list, complete_list, set_interrupt, clear_interrupt, clear_loading, read_loading
-from film import to_csv
-import logging
 
 if platform not in ['android', 'ios']:
     Window.size = (840, 1163)
